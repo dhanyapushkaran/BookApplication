@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand=lg" style="background-color: rgb(19, 18, 18);">
+    <h4 style="color: white; margin-left: 100px;">The Book Gallery</h4>
+  
+ 
+  </nav>
+<div class="row" style="margin-top: 30px;">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <div *ngFor="let book of bookDetails">
+            <div class="card" style="width: 18rem;" >
+              <div class="card" style="width: 18rem;">
+                <img src="{{book.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h6>Book: {{book.bookname}}</h6>
+                  <h6>Author: {{book.author}}</h6>
+                  <h6> Rs. {{book.price}}</h6>
+                </div>
+              </div>
+              <!-- </div> -->
+            </div>
+        
+          </div>
+          <button routerLink= "/" > Back</button>
+    </div>
+    <div class="col-lg-4"></div>
+
+    
+</div>
+
+
+

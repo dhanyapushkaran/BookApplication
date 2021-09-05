@@ -1,0 +1,14 @@
+<table *ngIf="item" class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let book of books ; index as i" >
+        <th>{{i+1}}</th>
+        <td (click) =" passName(book.bookname)" >{{book.bookname}}</td>
+      </tr>
+    </tbody>
+  </table>

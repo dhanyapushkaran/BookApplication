@@ -1,0 +1,16 @@
+<div *ngIf="item">
+    <div *ngFor="let instock of inStocks">
+        <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;">
+                <img src="{{instock.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h6>Book: {{instock.bookname}}</h6>
+                    <h6>Author: {{instock.author}}</h6>
+                    <h6> Rs. {{instock.price}}</h6>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+
+    </div>
+</div>

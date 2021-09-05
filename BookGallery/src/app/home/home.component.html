@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand=lg" style="background-color: rgb(19, 18, 18);">
+  <h4 style="color: white; margin-left: 100px;">The Book Gallery</h4>
+
+  <form class="d-flex" action="" [formGroup]="loginForm" (ngSubmit)="searchBook()" style="padding-left: 80px;">
+    <input class="form-control me-2" type="search" placeholder="BookName" aria-label="Search" name="bname"
+      formControlName="bname">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+  <h6 *ngIf="userName" style="color: rgb(235, 247, 236); margin-left: 100px;">Welcome {{userName}}</h6>
+  <div class="btn-group" role="group" aria-label="Basic outlined example" style="padding-right: 50px;">
+
+    <button *ngIf="!loggedin()" type="button" routerLink="/register" class="btn btn-outline-success">Register</button>
+    <button *ngIf="!loggedin()" type="button" routerLink="/login" class="btn btn-outline-success">Login</button>
+    <button *ngIf="loggedin()" type="button" routerLink="/logout" (click)="logout()"
+      class="btn btn-outline-success">LogOut</button>
+
+  </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/book.jpg" alt="" width="60" height="35" class="d-inline-block align-text-top">
+
+        </a>
+      </div>
+    </nav>
+
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active navbar-brand mb-0 h1 " aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active navbar-brand mb-0 h1" (click)="viewBooks()" href="#">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active navbar-brand mb-0 h1" href="#">Contact Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active navbar-brand mb-0 h1" routerLink="/bookentry">Add Book Details</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Stock Details
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item " style="color: rgb(68, 67, 67);" (click)="outStock()" href="#">Out of Stock</a>
+            </li>
+            <li><a class="dropdown-item " style="color: rgb(68, 67, 67);" (click)="inStock()" href="#">In Stock</a></li>
+            <!-- <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+          </ul>
+        </li>
+
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col-lg-4">
+    <img src="assets/images/books2.jpg" alt="" style="width: 500px; height: 500px; padding-left: 20px;">
+
+  </div>
+  <div class="col-lg-8" style="padding-left: 200px;">
+    <!-- <div> 
+        <select name="" id="" (change)="onSelectOption($event)">
+          <option *ngFor="let searchOption of searchOptions" [value]="searchOption">{{searchOption}}</option>
+        </select>
+    </div> -->
+
+    <div *ngFor="let instock of inStocks">
+      <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem;">
+          <img src="{{instock.image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6>Book: {{instock.bookname}}</h6>
+            <h6>Author: {{instock.author}}</h6>
+            <h6> Rs. {{instock.price}}</h6>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+
+    </div>
+
+    <app-in-stock [item]="instockId"></app-in-stock>
+    <app-all-books [item]="id"></app-all-books>
+    <app-outstock [item]="outstockId"></app-outstock>
+    
+  </div>
+</div>

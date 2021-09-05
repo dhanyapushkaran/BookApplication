@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand=lg" style="background-color: rgb(19, 18, 18);">
+    <h4 style="color: white; margin-left: 100px;">The Book Gallery</h4>
+</nav>
+
+<div class="container">
+<div class="row" style="padding-top: 50px;">
+    <div class="col-lg-6">
+        <img src="assets/images/books2.jpg" alt="" style="width: 500px; height: 500px; padding-left: 20px;">
+
+    </div>
+    <div class="col-lg-6">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <h5 style="padding-left: 160px;">Login Here</h5>
+            <div style="padding-top: 20px;padding-left: 100px; ">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">User ID</label>
+                    <input type="text" class="form-control" name="uid" formControlName="uid"
+                        style="width:200px; border-color: black;" id="acNo">
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+                <div *ngIf="(this.loginForm.get('uid')?.touched || this.loginForm.get('uid')?.dirty) && this.loginForm.get('uid')?.errors"
+                    class="error">invalid account number</div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="pswd" formControlName="pswd" id="pwd"
+                        style="width:200px ; border-color: black;">
+                </div>
+                <div *ngIf="(this.loginForm.get('pswd')?.touched || this.loginForm.get('pswd')?.dirty) && this.loginForm.get('pswd')?.errors"
+                    class="error">invalid password</div>
+
+                <button type="submit" class="btn btn-secondary">Submit</button> &nbsp;&nbsp;
+                <button type="submit" class="btn btn-secondary" routerLink="/register">Sign Up</button>
+
+                <p id="error" style="color: red;"></p>
+            </div>
+        </form>
+    </div>
+</div>
+   

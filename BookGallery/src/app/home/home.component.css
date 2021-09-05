@@ -1,0 +1,22 @@
+.row1,.row2{
+     padding-top: 20px;
+     padding-left: 5px;
+     border: 1px solid black;
+}
+.row3{
+    padding-top: 15px;
+}
+.row1 a{
+    padding-top: 20px;
+    padding-left: 900px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+nav a{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding-right: 10px;
+}

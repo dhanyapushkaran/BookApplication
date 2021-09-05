@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand=lg" style="background-color: rgb(19, 18, 18);">
+    <h4 style="color: white; margin-left: 100px;">The Book Gallery</h4>
+</nav>
+<div class="row" style="padding-top: 50px;">
+    <div class="col-lg-6">
+        <img src="assets/images/books2.jpg" alt="" style="width: 500px; height: 500px; padding-left: 20px;">
+
+    </div>
+    <div class="col-lg-6">
+        <h5 style="padding-left: 160px;">Register Here</h5>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div style="padding-top: 20px;padding-left: 100px; ">
+            <div class="mb-3">
+
+                <label for="exampleInputEmail1" class="form-label">User Id</label>
+                <input type="text" class="form-control" name="uid" formControlName="uid" style="width:200px; border-color: black;" id="acNo">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div *ngIf="(this.registerForm.get('uid')?.touched || this.registerForm.get('uid')?.dirty) && this.registerForm.get('uid')?.errors" class="error">invalid account number</div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User Name</label>
+                <input type="text" class="form-control" name="uname" formControlName="uname" style="width:200px; border-color: black;" id="name">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div *ngIf="(this.registerForm.get('uname')?.touched || this.registerForm.get('uname')?.dirty) && this.registerForm.get('uname')?.errors" class="error">invalid User Name</div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="pswd" id="pwd" formControlName="pswd" style="width:200px ; border-color: black;">
+            </div>
+            <div *ngIf="(this.registerForm.get('pswd')?.touched || this.registerForm.get('pswd')?.dirty) && this.registerForm.get('pswd')?.errors" class="error">invalid password</div>
+
+            <button type="submit" class="btn btn-secondary">Register</button> &nbsp;
+            <button class="btn btn-secondary" routerLink="/login">login</button>
+
+            <p id="error" style="color: red;"></p>
+        </div>
+    </form>
+    </div>
+</div>
+<div class="col-lg-6 log" style="margin-left: 100px;">
+
+    
+</div>
